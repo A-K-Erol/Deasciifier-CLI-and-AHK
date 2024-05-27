@@ -6,8 +6,9 @@
     Send ^c
     ClipWait
     highlightedText := Clipboard
+    highlightedText := StrReplace(highlightedText, "`n", "NEWLINE_DESIGNATOR_01000101")
     
-    cmd := "python deasciifyCLI.py    """ . highlightedText . """"
+    cmd := "python deasciifierCLIforHotkey.py    """ . highlightedText . """"
     RunWait, cmd.exe /c %cmd% ,, Hide
     
     if ErrorLevel
@@ -18,21 +19,24 @@
     
     FileRead, deasciifiedText, temp.txt
     FileDelete temp.txt
-    
-    Clipboard := deasciifiedText  ; Set clipboard content to deasciified text
+
+    deasciifiedCleanedText := StrReplace(deasciifiedText, "NEWLINE_DESIGNATOR_01000101", "`n")
+    Clipboard := deasciifiedCleanedText  ; Set clipboard content to deasciified text
+
     Send ^v  ; Paste the deasciified text
     Clipboard := cbs ; restore clipboard
     return
 }
 
-^!k::   ; Ctrl + Alt + T
+^!k::   ; Ctrl + Alt + k
 {
     Clipboard := ""
     Send ^c
     ClipWait
     highlightedText := Clipboard
+    highlightedText := StrReplace(highlightedText, "`n", "NEWLINE_DESIGNATOR_01000101")
     
-    cmd := "python deasciifyCLI.py    """ . highlightedText . """"
+    cmd := "python deasciifierCLIforHotkey.py    """ . highlightedText . """"
     RunWait, cmd.exe /c %cmd% ,, Hide
     
     if ErrorLevel
@@ -43,8 +47,9 @@
     
     FileRead, deasciifiedText, temp.txt
     FileDelete temp.txt
-    
-    Clipboard := deasciifiedText  ; Set clipboard content to deasciified text
+
+    deasciifiedCleanedText := StrReplace(deasciifiedText, "NEWLINE_DESIGNATOR_01000101", "`n")
+    Clipboard := deasciifiedCleanedText  ; Set clipboard content to deasciified text
     ; MsgBox, output on clipboard = %Clipboard%
 }
 
