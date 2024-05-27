@@ -8,8 +8,8 @@ This is a simple command line interface and autohotkey script for Turkish deasci
 **Dependencies**: Python 3, AHK version >= 2.0
 
 **My contributions**:
-1) updated deeasciifier python syntax and encodings to be up-to-date with python 3.
+1) updated deeasciifier python syntax and encodings to be up-to-date with python 3 and fixed a minor logical error.
 2) exposed the deasciifier via a command line interface.
-3) used the command line interface to create a hotkey script.
+3) used the command line interface to create a hotkey script that can handle multi-line deasciification.
 
 
