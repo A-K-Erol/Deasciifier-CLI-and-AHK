@@ -1,5 +1,7 @@
 ^!t::   ; Ctrl + Alt + T
+
 {
+    cbs := Clipboard ; save clipboard
     Clipboard := ""
     Send ^c
     ClipWait
@@ -19,6 +21,7 @@
     
     Clipboard := deasciifiedText  ; Set clipboard content to deasciified text
     Send ^v  ; Paste the deasciified text
+    Clipboard := cbs ; restore clipboard
     return
 }
 
@@ -42,6 +45,6 @@
     FileDelete temp.txt
     
     Clipboard := deasciifiedText  ; Set clipboard content to deasciified text
-    MsgBox, output on clipboard = %Clipboard%
+    ; MsgBox, output on clipboard = %Clipboard%
 }
 
