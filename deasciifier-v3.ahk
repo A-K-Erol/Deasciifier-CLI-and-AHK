@@ -24,6 +24,7 @@
     Clipboard := deasciifiedCleanedText  ; Set clipboard content to deasciified text
 
     Send ^v  ; Paste the deasciified text
+    Sleep, 100 ; wait for paste to execute
     Clipboard := cbs ; restore clipboard
     return
 }
