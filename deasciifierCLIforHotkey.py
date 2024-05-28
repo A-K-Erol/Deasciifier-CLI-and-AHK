@@ -6,6 +6,8 @@ if len(sys.argv) != 2:
 
 text = sys.argv[1]
 text = text.replace("NEWLINE_DESIGNATOR_01000101", "\n")
+if text and text[-1] == "\n":
+    text = text[:-1]
 
 app = deasciifier.Deasciifier()
 output = app.deasciify(text)
